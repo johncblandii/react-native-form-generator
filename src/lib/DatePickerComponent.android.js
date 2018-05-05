@@ -61,6 +61,8 @@ import {Field} from './Field';
     }
 
     render(){
+      let valueString = this.props.dateTimeFormat(this.state.date, this.props.mode);
+
       let placeholderComponent = (this.props.placeholderComponent)
                         ? this.props.placeholderComponent
                         : <Text style={[formStyles.fieldText, this.props.placeholderStyle]}>{this.props.placeholder}</Text>
@@ -78,9 +80,9 @@ import {Field} from './Field';
           }
           {placeholderComponent}
           <View style={[formStyles.alignRight, formStyles.horizontalContainer]}>
-            <Text style={[formStyles.fieldValue,this.props.valueStyle ]}>{
-            (this.state.date)?this.state.date.toLocaleDateString():""
-          }</Text>
+            <Text style={[formStyles.fieldValue,this.props.valueStyle ]}>
+              {valueString}
+            </Text>
 
 
           </View>
@@ -112,9 +114,22 @@ import {Field} from './Field';
   }
 
   DatePickerComponent.defaultProps = {
-    dateTimeFormat: (date)=>{
+    dateTimeFormat: (date, mode)=>{
       if(!date) return "";
-      return date.toLocaleDateString()
+      let value='';
+      switch(mode){
+        case 'datetime':
+         value = date.toLocaleDateString()
+                + ' '
+                + date.toLocaleTimeString()
+        break;
+        case 'time':
+          value = date.toLocaleTimeString()
+        break;
+        default:
+          value = date.toLocaleDateString()
+      }
+      return value;
     }
   };
 
