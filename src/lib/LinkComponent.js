@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-let { View, ViewPropTypes, StyleSheet, Text} = require('react-native');
+let { View, ViewPropTypes, StyleSheet, Text,TextPropTypes} = require('react-native');
 import {Field} from './Field';
 
 
@@ -47,6 +47,6 @@ export class LinkComponent extends React.Component{
 }
 
 LinkComponent.propTypes = {
-  labelStyle: Text.propTypes.style,
+  labelStyle: TextPropTypes.style,
   containerStyle: ViewPropTypes.style
 }
