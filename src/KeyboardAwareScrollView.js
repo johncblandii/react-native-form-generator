@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ScrollView, DeviceEventEmitter } from 'react-native'
-import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
-import ViewStylePropTypes from 'react-native/Libraries/Components/View/ViewStylePropTypes'
+import {ViewStyleProp} from 'react-native'
 
 export class KeyboardAwareScrollView extends React.Component {
   constructor (props) {
@@ -74,7 +73,7 @@ export class KeyboardAwareScrollView extends React.Component {
 }
 
 KeyboardAwareScrollView.propTypes = {
-  style: StyleSheetPropType(ViewStylePropTypes),
+  style: ViewStyleProp,
   children: PropTypes.node,
   viewIsInsideTabBar: PropTypes.bool,
 }

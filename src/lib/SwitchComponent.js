@@ -1,7 +1,8 @@
 'use strict';
 
 import React from 'react';
-let { View, ViewPropTypes, StyleSheet, Text, TextPropTypes, Switch} = require('react-native');
+import PropTypes from 'prop-types';
+let { View, StyleSheet, Text, Switch} = require('react-native');
 
 import {Field} from './Field';
 
@@ -52,8 +53,16 @@ export class SwitchComponent extends React.Component{
 }
 
 SwitchComponent.propTypes = {
-  labelStyle: TextPropTypes.style,
-  containerStyle: ViewPropTypes.style,
+  labelStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
+  containerStyle: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number,
+    PropTypes.array
+  ]),
   switchStyle: Switch.propTypes.style
 }
 
