@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactNative, { Platform } from 'react-native';
+import ReactNative, { Platform, TextStyle } from 'react-native';
 import {Field} from './Field.js';
 
 const { View, StyleSheet, TextInput, Text } = ReactNative;
@@ -216,5 +216,5 @@ InputComponent.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
-  inputStyle: TextInput.propTypes.style,
+  inputStyle: TextStyle,
 }

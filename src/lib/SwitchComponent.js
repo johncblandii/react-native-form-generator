@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-let { View, StyleSheet, Text, Switch} = require('react-native');
+let { View, StyleSheet, Text, Switch, ViewStyle } = require('react-native');
 
 import {Field} from './Field';
 
@@ -63,7 +63,7 @@ SwitchComponent.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
-  switchStyle: Switch.propTypes.style
+  switchStyle: ViewStyle
 }
 
 
